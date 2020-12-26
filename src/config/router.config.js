@@ -53,7 +53,7 @@ export const constantRouterMap = [
         path: '/security',
         name: 'security',
         component: () => import('@/views/demo/EndPoint'),
-        meta: { title:'dashboard',icon: menu1, keepAlive: true, permission: ['dashboard'] }
+        meta: { title:'Security Posture',icon: menu1, keepAlive: true, permission: ['dashboard'] }
       },
 
       // forms
@@ -61,7 +61,7 @@ export const constantRouterMap = [
         path: '/menu2',
         redirect: '/menu2/identity',
         component: () => import('@/views/demo/EndPoint'),
-        meta: { title: 'identity risk', icon: menu2, keepAlive: true, permission: ['form'] }
+        meta: { title: 'Identity and Risk Insights(Preview)', icon: menu2, keepAlive: true, permission: ['form'] }
       },
 
       // list
@@ -69,7 +69,7 @@ export const constantRouterMap = [
         path: '/menu3',
         name: 'list',
         component: () => import('@/views/demo/EndPoint'),
-        meta: { title: 'detection', icon: menu3, keepAlive: true, permission: ['table'] }
+        meta: { title: 'Detection Model Management', icon: menu3, keepAlive: true, permission: ['table'] }
       },
 
       // profile
@@ -77,7 +77,7 @@ export const constantRouterMap = [
         path: '/menu4',
         name: 'profile',
         component: () => import('@/views/demo/EndPoint'),
-        meta: { title: 'base', icon: menu4, permission: ['profile'] }
+        meta: { title: 'Threat Intelliengce', icon: menu4, permission: ['profile'] }
       },
 
       // result
@@ -85,7 +85,7 @@ export const constantRouterMap = [
         path: '/menu5',
         name: 'result',
         component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
-        meta: { title: 'detectionModel',icon: menu5, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+        meta: { title: 'Workbench',icon: menu5, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
       },
 
       // account
@@ -94,35 +94,56 @@ export const constantRouterMap = [
         component: RouteView,
         name: 'threat',
         component: () => import('@/views/demo/EndPoint'),
-        meta: { title: 'threatIntellegence', icon: menu6,  keepAlive: true, permission: ['user'] }
+        meta: { title: 'Observed Attact Techniques ', icon: menu6,  keepAlive: true, permission: ['user'] }
       },
       {
         path: '/menu7',
         name: 'menu7',
         component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
-        meta: { title: 'workbench', icon: menu7, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+        meta: { title: 'Search', icon: menu7, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
       },
       {
         path: '/menu8',
         name: 'menu8',
         component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
-        meta: { title: 'Observed Attact Techniques', icon: menu8, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+        meta: { title: 'Response Management', icon: menu8, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
       },
       {
         path: '/menu9',
         name: 'menu9',
         component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
-        meta: { title: 'Search',icon: menu9, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+        meta: { title: 'Managed XDR',icon: menu9, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
       },
       {
         path: '/menu10',
         name: 'menu10',
-        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
-        meta: { title: 'responseManagement',icon: menu10,  keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }        
+        meta: { title: 'mobile',icon: menu10,  keepAlive: false,  permission: ['result'] },       
+        component: RouteView,
+        redirect: '/menu10/mobile',
+        children: [
+          {
+            path: '/menu10/mobile',
+            name: 'mobile',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Mobile Inventory(Preview)', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu10/detec',
+            name: 'detec',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Mobile Detection Logs(Preview)', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu10/policy',
+            name: 'ploicy',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Mobile Policy(Preview)', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          }
+        ]
       },
       {
         path: '/menu11',
-        name: 'menu13',
+        name: 'menu11',
         component: RouteView,
         redirect: '/menu13/endpoint',
         meta: { title: 'endpoint', icon:menu11, permission: ['result'] },
@@ -148,10 +169,100 @@ export const constantRouterMap = [
         ]
       },
       {
+        path: '/menu12',
+        name: 'menu12',
+        component: RouteView,
+        redirect: '/menu12/sign',
+        meta: { title: 'setting', icon:menu13, permission: ['result'] },
+        children: [
+          {
+            path: '/menu12/sign',
+            name: 'sign',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Single Sign-On', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/directory',
+            name: 'directory',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Directory Sync (Preview)', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/account',
+            name: 'account',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'User Accounts', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/role',
+            name: 'role',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'User Roles', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/connect',
+            name: 'connect',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Product Connector', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/notifiy',
+            name: 'notifiy',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Alert Notifications', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/log',
+            name: 'log',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Audit Logs', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/support',
+            name: 'support',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Remote Support', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu12/license',
+            name: 'license',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'License Information', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          }
+        ]
+      },
+      {
         path: '/menu14',
         name: 'menu14',
-        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
-        meta: { title: 'help', icon: menu14, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }       
+        component: RouteView,
+        redirect: '/menu14/help',
+        meta: { title: 'endpoint', icon:menu14, permission: ['result'] },
+        children: [
+          {
+            path: '/menu14/help',
+            name: 'Help',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Help', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu14/online',
+            name: 'onlinehelp',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Online Help', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu14/contact',
+            name: 'contact',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Contact Support', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu14/about',
+            name: 'about',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'About', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          }
+        ]
       },
       {
         path: '/menu15',
@@ -163,7 +274,7 @@ export const constantRouterMap = [
         path: '/menu16',
         name: 'menu16',
         component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
-        meta: { title: 'more', icon:menu16, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+        meta: {title:'more',icon:menu16, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
       }
     ]
   },

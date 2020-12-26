@@ -11,7 +11,6 @@
     :collapsedButtonRender="false"
     v-bind="settings"
   >
-    <setting-drawer :settings="settings" @change="handleSettingChange" />
     <template v-slot:breadcrumbRender>
       <div style="height:0px"/>
     </template>
