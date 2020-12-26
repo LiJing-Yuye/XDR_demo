@@ -5,7 +5,7 @@
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
             <a-form-item label="角色ID">
-              <a-input placeholder="请输入"/>
+              <a-input placeholder="请输入" />
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
@@ -32,16 +32,18 @@
       size="default"
       :columns="columns"
       :data="loadData"
-      :expandedRowKeys="expandedRowKeys"
+      :expanded-row-keys="expandedRowKeys"
       @expand="handleExpand"
     >
       <div
         slot="expandedRowRender"
         slot-scope="record"
-        style="margin: 0">
+        style="margin: 0"
+      >
         <a-row
           :gutter="24"
-          :style="{ marginBottom: '12px' }">
+          :style="{ marginBottom: '12px' }"
+        >
           <a-col :span="12" v-for="(role, index) in record.permissions" :key="index" :style="{ marginBottom: '12px', height: '23px' }">
             <a-col :lg="4" :md="24">
               <span>{{ role.permissionName }}：</span>
@@ -87,11 +89,11 @@
       <a-form class="permission-form" :form="form">
 
         <a-form-item
-          :labelCol="labelCol"
-          :wrapperCol="wrapperCol"
+          :label-col="labelCol"
+          :wrapper-col="wrapperCol"
           label="唯一识别码"
-          hasFeedback
-          validateStatus="success"
+          has-feedback
+          validate-status="success"
         >
           <a-input
             placeholder="唯一识别码"
@@ -101,11 +103,11 @@
         </a-form-item>
 
         <a-form-item
-          :labelCol="labelCol"
-          :wrapperCol="wrapperCol"
+          :label-col="labelCol"
+          :wrapper-col="wrapperCol"
           label="角色名称"
-          hasFeedback
-          validateStatus="success"
+          has-feedback
+          validate-status="success"
         >
           <a-input
             placeholder="起一个名字"
@@ -114,11 +116,11 @@
         </a-form-item>
 
         <a-form-item
-          :labelCol="labelCol"
-          :wrapperCol="wrapperCol"
+          :label-col="labelCol"
+          :wrapper-col="wrapperCol"
           label="状态"
-          hasFeedback
-          validateStatus="warning"
+          has-feedback
+          validate-status="warning"
         >
           <a-select v-decorator="['status', { initialValue: 1 }]">
             <a-select-option :value="1">正常</a-select-option>
@@ -127,10 +129,10 @@
         </a-form-item>
 
         <a-form-item
-          :labelCol="labelCol"
-          :wrapperCol="wrapperCol"
+          :label-col="labelCol"
+          :wrapper-col="wrapperCol"
           label="描述"
-          hasFeedback
+          has-feedback
         >
           <a-textarea
             :rows="5"
@@ -145,13 +147,13 @@
           <a-form-item
             class="permission-group"
             v-if="permission.actionsOptions && permission.actionsOptions.length > 0"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
             :key="permission.permissionId"
             :label="permission.permissionName"
           >
             <a-checkbox>全选</a-checkbox>
-            <a-checkbox-group v-decorator="[`permissions.${permission.permissionId}`]" :options="permission.actionsOptions"/>
+            <a-checkbox-group v-decorator="[`permissions.${permission.permissionId}`]" :options="permission.actionsOptions" />
           </a-form-item>
         </template>
 

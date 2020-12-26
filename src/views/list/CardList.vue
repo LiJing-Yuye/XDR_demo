@@ -8,17 +8,17 @@
     content="段落示意：蚂蚁金服务设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态， 提供跨越设计与开发的体验解决方案。"
   >
     <template v-slot:extraContent>
-      <div style="width: 155px; margin-top: -20px;"><img style="width: 100%" :src="extraImage" /></div>
+      <div style="width: 155px; margin-top: -20px;"><img style="width: 100%" :src="extraImage"></div>
     </template>
     <a-list
-      rowKey="id"
+      row-key="id"
       :grid="{gutter: 24, lg: 3, md: 2, sm: 1, xs: 1}"
-      :dataSource="dataSource"
+      :data-source="dataSource"
     >
       <a-list-item slot="renderItem" slot-scope="item">
         <template v-if="!item || item.id === undefined">
           <a-button class="new-btn" type="dashed">
-            <a-icon type="plus"/>
+            <a-icon type="plus" />
             新增产品
           </a-button>
         </template>
@@ -26,7 +26,7 @@
           <a-card :hoverable="true">
             <a-card-meta>
               <a slot="title">{{ item.title }}</a>
-              <a-avatar class="card-avatar" slot="avatar" :src="item.avatar" size="large"/>
+              <a-avatar class="card-avatar" slot="avatar" :src="item.avatar" size="large" />
               <div class="meta-content" slot="description">{{ item.content }}</div>
             </a-card-meta>
             <template class="ant-card-actions" slot="actions">

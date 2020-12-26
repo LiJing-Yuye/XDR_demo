@@ -1,22 +1,25 @@
 <template>
   <pro-layout
-    :title="title"
     :menus="menus"
-    :collapsed="collapsed"
-    :mediaQuery="query"
-    :isMobile="isMobile"
-    :handleMediaQuery="handleMediaQuery"
-    :handleCollapse="handleCollapse"
+    :collapsed="collMore"
+    :media-query="query"
+    :is-mobile="isMobile"
+    :handle-media-query="handleMediaQuery"
+    :handle-collapse="handleCollapse"
     :logo="logoRender"
-    :i18nRender="i18nRender"
+    :i18n-render="i18nRender"
+    :collapsedButtonRender="false"
     v-bind="settings"
   >
     <setting-drawer :settings="settings" @change="handleSettingChange" />
-    <template v-slot:rightContentRender>
-      <right-content :top-menu="settings.layout === 'topmenu'" :is-mobile="isMobile" :theme="settings.theme" />
+    <template v-slot:breadcrumbRender>
+      <div style="height:0px"/>
+    </template>
+    <template v-slot:headerContentRender>
+      <header-content></header-content>
     </template>
     <template v-slot:footerRender>
-      <global-footer />
+      <div style="height:0px"/>
     </template>
     <router-view />
   </pro-layout>
@@ -29,15 +32,15 @@ import { CONTENT_WIDTH_TYPE, SIDEBAR_TYPE, TOGGLE_MOBILE_TYPE } from '@/store/mu
 
 import defaultSettings from '@/config/defaultSettings'
 import RightContent from '@/components/GlobalHeader/RightContent'
-import GlobalFooter from '@/components/GlobalFooter'
-import LogoSvg from '../assets/logo.svg?inline'
+import HeaderContent from '@/components/GlobalHeader/HeaderContent'
+import LogoSvg from '../assets/trend.svg?inline'
 
 export default {
   name: 'BasicLayout',
   components: {
     SettingDrawer,
     RightContent,
-    GlobalFooter
+    HeaderContent
   },
   data () {
     return {
@@ -46,6 +49,7 @@ export default {
       // end
 
       // base
+      collMore: true,
       menus: [],
       // 侧栏收起状态
       collapsed: false,
@@ -56,7 +60,7 @@ export default {
         // CONTENT_WIDTH_TYPE
         contentWidth: defaultSettings.layout === 'sidemenu' ? CONTENT_WIDTH_TYPE.Fluid : defaultSettings.contentWidth,
         // 主题 'dark' | 'light'
-        theme: defaultSettings.navTheme,
+        // theme: defaultSettings.navTheme,
         // 主色调
         primaryColor: defaultSettings.primaryColor,
         fixedHeader: defaultSettings.fixedHeader,
@@ -65,6 +69,8 @@ export default {
 
         hideHintAlert: false,
         hideCopyButton: false
+        // footerRender: false,
+        // breadcrumbRender: false
       },
       // 媒体查询
       query: {},
@@ -79,6 +85,7 @@ export default {
     this.menus = (routes[0] && routes[0].children) || []
     // 处理侧栏收起状态
     this.$watch('collapsed', () => {
+      console.log('collapsed：', this.collapsed)
       this.$store.commit(SIDEBAR_TYPE, this.collapsed)
     })
     this.$watch('isMobile', () => {
@@ -112,7 +119,7 @@ export default {
       }
       if (!this.isMobile && val['screen-xs']) {
         this.isMobile = true
-        this.collapsed = false
+        this.collapsed = true
         this.settings.contentWidth = CONTENT_WIDTH_TYPE.Fluid
         // this.settings.fixSiderbar = false
       }
@@ -138,7 +145,7 @@ export default {
       }
     },
     logoRender () {
-      return <LogoSvg />
+      return <LogoSvg style='background-color:white'/>
     }
   }
 }

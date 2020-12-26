@@ -2,7 +2,7 @@
   <a-card :bordered="false" :style="{ height: '100%' }">
     <a-row :gutter="24">
       <a-col :md="4">
-        <a-list itemLayout="vertical" :dataSource="roles">
+        <a-list item-layout="vertical" :data-source="roles">
           <a-list-item slot="renderItem" slot-scope="item, index" :key="index">
             <a-list-item-meta :style="{ marginBottom: '0' }">
               <span slot="description" style="text-align: center; display: block">{{ item.describe }}</span>
@@ -47,7 +47,8 @@
                     v-if="permission.actionsOptions.length > 0"
                     :indeterminate="permission.indeterminate"
                     :checked="permission.checkedAll"
-                    @change="onChangeCheckAll($event, permission)">
+                    @change="onChangeCheckAll($event, permission)"
+                  >
                     全选
                   </a-checkbox>
                   <a-checkbox-group :options="permission.actionsOptions" v-model="permission.selected" @change="onChangeCheck(permission)" />

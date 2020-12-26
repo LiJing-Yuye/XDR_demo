@@ -233,7 +233,7 @@ export default {
     renderClear (callback) {
       if (this.selectedRowKeys.length <= 0) return null
       return (
-        <a style="margin-left: 24px" onClick={() => {
+        <a style='margin-left: 24px' onClick={() => {
           callback()
           this.clearSelected()
         }}>清空</a>
@@ -242,8 +242,8 @@ export default {
     renderAlert () {
       // 绘制统计列数据
       const needTotalItems = this.needTotalList.map((item) => {
-        return (<span style="margin-right: 12px">
-          {item.title}总计 <a style="font-weight: 600">{!item.customRender ? item.total : item.customRender(item.total)}</a>
+        return (<span style='margin-right: 12px'>
+          {item.title}总计 <a style='font-weight: 600'>{!item.customRender ? item.total : item.customRender(item.total)}</a>
         </span>)
       })
 
@@ -256,9 +256,9 @@ export default {
 
       // 绘制 alert 组件
       return (
-        <a-alert showIcon={true} style="margin-bottom: 16px">
-          <template slot="message">
-            <span style="margin-right: 12px">已选择: <a style="font-weight: 600">{this.selectedRows.length}</a></span>
+        <a-alert showIcon={true} style='margin-bottom: 16px'>
+          <template slot='message'>
+            <span style='margin-right: 12px'>已选择: <a style='font-weight: 600'>{this.selectedRows.length}</a></span>
             {needTotalItems}
             {clearItem}
           </template>
@@ -307,7 +307,7 @@ export default {
     )
 
     return (
-      <div class="table-wrapper">
+      <div class='table-wrapper'>
         { showAlert ? this.renderAlert() : null }
         { table }
       </div>

@@ -23,9 +23,9 @@
       <a-button-group style="margin-right: 4px;">
         <a-button>操作</a-button>
         <a-button>操作</a-button>
-        <a-button><a-icon type="ellipsis"/></a-button>
+        <a-button><a-icon type="ellipsis" /></a-button>
       </a-button-group>
-      <a-button type="primary" >主操作</a-button>
+      <a-button type="primary">主操作</a-button>
     </template>
 
     <template v-slot:extraContent>
@@ -42,7 +42,7 @@
     </template>
 
     <a-card :bordered="false" title="流程进度">
-      <a-steps :direction="isMobile && 'vertical' || 'horizontal'" :current="1" progressDot>
+      <a-steps :direction="isMobile && 'vertical' || 'horizontal'" :current="1" progress-dot>
         <a-step>
           <template v-slot:title>
             <span>创建项目</span>
@@ -81,10 +81,10 @@
       <a-descriptions title="信息组">
         <a-descriptions-item label="某某数据">725</a-descriptions-item>
         <a-descriptions-item label="该数据更新时间">2018-08-08</a-descriptions-item>
-        <a-descriptions-item ></a-descriptions-item>
+        <a-descriptions-item />
         <a-descriptions-item label="某某数据">725</a-descriptions-item>
         <a-descriptions-item label="该数据更新时间">2018-08-08</a-descriptions-item>
-        <a-descriptions-item ></a-descriptions-item>
+        <a-descriptions-item />
       </a-descriptions>
       <a-card type="inner" title="多层信息组">
         <a-descriptions title="组名称" size="small">
@@ -108,51 +108,54 @@
     </a-card>
 
     <a-card style="margin-top: 24px" :bordered="false" title="用户近半年来电记录">
-      <div class="no-data"><a-icon type="frown-o"/>暂无数据</div>
+      <div class="no-data"><a-icon type="frown-o" />暂无数据</div>
     </a-card>
 
     <!-- 操作 -->
     <a-card
       style="margin-top: 24px"
       :bordered="false"
-      :tabList="operationTabList"
-      :activeTabKey="operationActiveTabKey"
+      :tab-list="operationTabList"
+      :active-tab-key="operationActiveTabKey"
       @tabChange="(key) => {this.operationActiveTabKey = key}"
     >
       <a-table
         v-if="operationActiveTabKey === '1'"
         :columns="operationColumns"
-        :dataSource="operation1"
+        :data-source="operation1"
         :pagination="false"
       >
         <template
           slot="status"
-          slot-scope="status">
-          <a-badge :status="status | statusTypeFilter" :text="status | statusFilter"/>
+          slot-scope="status"
+        >
+          <a-badge :status="status | statusTypeFilter" :text="status | statusFilter" />
         </template>
       </a-table>
       <a-table
         v-if="operationActiveTabKey === '2'"
         :columns="operationColumns"
-        :dataSource="operation2"
+        :data-source="operation2"
         :pagination="false"
       >
         <template
           slot="status"
-          slot-scope="status">
-          <a-badge :status="status | statusTypeFilter" :text="status | statusFilter"/>
+          slot-scope="status"
+        >
+          <a-badge :status="status | statusTypeFilter" :text="status | statusFilter" />
         </template>
       </a-table>
       <a-table
         v-if="operationActiveTabKey === '3'"
         :columns="operationColumns"
-        :dataSource="operation3"
+        :data-source="operation3"
         :pagination="false"
       >
         <template
           slot="status"
-          slot-scope="status">
-          <a-badge :status="status | statusTypeFilter" :text="status | statusFilter"/>
+          slot-scope="status"
+        >
+          <a-badge :status="status | statusTypeFilter" :text="status | statusFilter" />
         </template>
       </a-table>
     </a-card>

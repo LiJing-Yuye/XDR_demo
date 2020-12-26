@@ -3,7 +3,7 @@
     title="操作"
     :width="600"
     :visible="visible"
-    :confirmLoading="confirmLoading"
+    :confirm-loading="confirmLoading"
     @ok="handleOk"
     @cancel="handleCancel"
   >

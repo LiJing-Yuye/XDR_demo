@@ -18,9 +18,9 @@ import { loadLanguageAsync } from '@/locales'
 
 const app = {
   state: {
-    sideCollapsed: false,
+    sideCollapsed: true,
     isMobile: false,
-    theme: 'dark',
+    // theme: 'dark',
     layout: '',
     contentWidth: '',
     fixedHeader: false,

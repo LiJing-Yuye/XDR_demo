@@ -1,6 +1,6 @@
-// eslint-disable-next-line
+/* eslint-disable */
 import { UserLayout, BasicLayout, BlankLayout } from '@/layouts'
-import { bxAnaalyse } from '@/core/icons'
+import { menu1, menu2, menu3, menu4, menu5, menu6, menu7, menu8, menu9, menu10, menu11, menu12, menu13, menu14, menu15, menu16 } from '@/core/icons'
 
 const RouteView = {
   name: 'RouteView',
@@ -46,252 +46,124 @@ export const constantRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: 'menu.home' },
-    redirect: '/dashboard/workplace',
+    redirect: '/security',
     children: [
       // dashboard
       {
-        path: '/dashboard',
-        name: 'dashboard',
-        redirect: '/dashboard/workplace',
-        component: RouteView,
-        meta: { title: 'menu.dashboard', keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] },
-        children: [
-          {
-            path: '/dashboard/analysis/:pageNo([1-9]\\d*)?',
-            name: 'Analysis',
-            component: () => import('@/views/dashboard/Analysis'),
-            meta: { title: 'menu.dashboard.analysis', keepAlive: false, permission: ['dashboard'] }
-          },
-          // 外部链接
-          {
-            path: 'https://www.baidu.com/',
-            name: 'Monitor',
-            meta: { title: 'menu.dashboard.monitor', target: '_blank' }
-          },
-          {
-            path: '/dashboard/workplace',
-            name: 'Workplace',
-            component: () => import('@/views/dashboard/Workplace'),
-            meta: { title: 'menu.dashboard.workplace', keepAlive: true, permission: ['dashboard'] }
-          }
-        ]
+        path: '/security',
+        name: 'security',
+        component: () => import('@/views/demo/EndPoint'),
+        meta: { title:'dashboard',icon: menu1, keepAlive: true, permission: ['dashboard'] }
       },
 
       // forms
       {
-        path: '/form',
-        redirect: '/form/base-form',
-        component: RouteView,
-        meta: { title: '表单页', icon: 'form', permission: ['form'] },
-        children: [
-          {
-            path: '/form/base-form',
-            name: 'BaseForm',
-            component: () => import('@/views/form/basicForm'),
-            meta: { title: '基础表单', keepAlive: true, permission: ['form'] }
-          },
-          {
-            path: '/form/step-form',
-            name: 'StepForm',
-            component: () => import('@/views/form/stepForm/StepForm'),
-            meta: { title: '分步表单', keepAlive: true, permission: ['form'] }
-          },
-          {
-            path: '/form/advanced-form',
-            name: 'AdvanceForm',
-            component: () => import('@/views/form/advancedForm/AdvancedForm'),
-            meta: { title: '高级表单', keepAlive: true, permission: ['form'] }
-          }
-        ]
+        path: '/menu2',
+        redirect: '/menu2/identity',
+        component: () => import('@/views/demo/EndPoint'),
+        meta: { title: 'identity risk', icon: menu2, keepAlive: true, permission: ['form'] }
       },
 
       // list
       {
-        path: '/list',
+        path: '/menu3',
         name: 'list',
-        component: RouteView,
-        redirect: '/list/table-list',
-        meta: { title: '列表页', icon: 'table', permission: ['table'] },
-        children: [
-          {
-            path: '/list/table-list/:pageNo([1-9]\\d*)?',
-            name: 'TableListWrapper',
-            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
-            component: () => import('@/views/list/TableList'),
-            meta: { title: '查询表格', keepAlive: true, permission: ['table'] }
-          },
-          {
-            path: '/list/basic-list',
-            name: 'BasicList',
-            component: () => import('@/views/list/BasicList'),
-            meta: { title: '标准列表', keepAlive: true, permission: ['table'] }
-          },
-          {
-            path: '/list/card',
-            name: 'CardList',
-            component: () => import('@/views/list/CardList'),
-            meta: { title: '卡片列表', keepAlive: true, permission: ['table'] }
-          },
-          {
-            path: '/list/search',
-            name: 'SearchList',
-            component: () => import('@/views/list/search/SearchLayout'),
-            redirect: '/list/search/article',
-            meta: { title: '搜索列表', keepAlive: true, permission: ['table'] },
-            children: [
-              {
-                path: '/list/search/article',
-                name: 'SearchArticles',
-                component: () => import('../views/list/search/Article'),
-                meta: { title: '搜索列表（文章）', permission: ['table'] }
-              },
-              {
-                path: '/list/search/project',
-                name: 'SearchProjects',
-                component: () => import('../views/list/search/Projects'),
-                meta: { title: '搜索列表（项目）', permission: ['table'] }
-              },
-              {
-                path: '/list/search/application',
-                name: 'SearchApplications',
-                component: () => import('../views/list/search/Applications'),
-                meta: { title: '搜索列表（应用）', permission: ['table'] }
-              }
-            ]
-          }
-        ]
+        component: () => import('@/views/demo/EndPoint'),
+        meta: { title: 'detection', icon: menu3, keepAlive: true, permission: ['table'] }
       },
 
       // profile
       {
-        path: '/profile',
+        path: '/menu4',
         name: 'profile',
-        component: RouteView,
-        redirect: '/profile/basic',
-        meta: { title: '详情页', icon: 'profile', permission: ['profile'] },
-        children: [
-          {
-            path: '/profile/basic',
-            name: 'ProfileBasic',
-            component: () => import('@/views/profile/basic'),
-            meta: { title: '基础详情页', permission: ['profile'] }
-          },
-          {
-            path: '/profile/advanced',
-            name: 'ProfileAdvanced',
-            component: () => import('@/views/profile/advanced/Advanced'),
-            meta: { title: '高级详情页', permission: ['profile'] }
-          }
-        ]
+        component: () => import('@/views/demo/EndPoint'),
+        meta: { title: 'base', icon: menu4, permission: ['profile'] }
       },
 
       // result
       {
-        path: '/result',
+        path: '/menu5',
         name: 'result',
-        component: RouteView,
-        redirect: '/result/success',
-        meta: { title: '结果页', icon: 'check-circle-o', permission: ['result'] },
-        children: [
-          {
-            path: '/result/success',
-            name: 'ResultSuccess',
-            component: () => import(/* webpackChunkName: "result" */ '@/views/result/Success'),
-            meta: { title: '成功', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
-          },
-          {
-            path: '/result/fail',
-            name: 'ResultFail',
-            component: () => import(/* webpackChunkName: "result" */ '@/views/result/Error'),
-            meta: { title: '失败', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
-          }
-        ]
-      },
-
-      // Exception
-      {
-        path: '/exception',
-        name: 'exception',
-        component: RouteView,
-        redirect: '/exception/403',
-        meta: { title: '异常页', icon: 'warning', permission: ['exception'] },
-        children: [
-          {
-            path: '/exception/403',
-            name: 'Exception403',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/403'),
-            meta: { title: '403', permission: ['exception'] }
-          },
-          {
-            path: '/exception/404',
-            name: 'Exception404',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404'),
-            meta: { title: '404', permission: ['exception'] }
-          },
-          {
-            path: '/exception/500',
-            name: 'Exception500',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/500'),
-            meta: { title: '500', permission: ['exception'] }
-          }
-        ]
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'detectionModel',icon: menu5, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
       },
 
       // account
       {
-        path: '/account',
+        path: '/menu6',
         component: RouteView,
-        redirect: '/account/center',
-        name: 'account',
-        meta: { title: '个人页', icon: 'user', keepAlive: true, permission: ['user'] },
+        name: 'threat',
+        component: () => import('@/views/demo/EndPoint'),
+        meta: { title: 'threatIntellegence', icon: menu6,  keepAlive: true, permission: ['user'] }
+      },
+      {
+        path: '/menu7',
+        name: 'menu7',
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'workbench', icon: menu7, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+      },
+      {
+        path: '/menu8',
+        name: 'menu8',
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'Observed Attact Techniques', icon: menu8, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+      },
+      {
+        path: '/menu9',
+        name: 'menu9',
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'Search',icon: menu9, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+      },
+      {
+        path: '/menu10',
+        name: 'menu10',
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'responseManagement',icon: menu10,  keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }        
+      },
+      {
+        path: '/menu11',
+        name: 'menu13',
+        component: RouteView,
+        redirect: '/menu13/endpoint',
+        meta: { title: 'endpoint', icon:menu11, permission: ['result'] },
         children: [
           {
-            path: '/account/center',
-            name: 'center',
-            component: () => import('@/views/account/center'),
-            meta: { title: '个人中心', keepAlive: true, permission: ['user'] }
+            path: '/menu13/endpoint',
+            name: 'ResultSuccess',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/XDR'),
+            meta: { title: 'Endpoint Inventory', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
           },
           {
-            path: '/account/settings',
-            name: 'settings',
-            component: () => import('@/views/account/settings/Index'),
-            meta: { title: '个人设置', hideHeader: true, permission: ['user'] },
-            redirect: '/account/settings/base',
-            hideChildrenInMenu: true,
-            children: [
-              {
-                path: '/account/settings/base',
-                name: 'BaseSettings',
-                component: () => import('@/views/account/settings/BaseSetting'),
-                meta: { title: '基本设置', hidden: true, permission: ['user'] }
-              },
-              {
-                path: '/account/settings/security',
-                name: 'SecuritySettings',
-                component: () => import('@/views/account/settings/Security'),
-                meta: { title: '安全设置', hidden: true, keepAlive: true, permission: ['user'] }
-              },
-              {
-                path: '/account/settings/custom',
-                name: 'CustomSettings',
-                component: () => import('@/views/account/settings/Custom'),
-                meta: { title: '个性化设置', hidden: true, keepAlive: true, permission: ['user'] }
-              },
-              {
-                path: '/account/settings/binding',
-                name: 'BindingSettings',
-                component: () => import('@/views/account/settings/Binding'),
-                meta: { title: '账户绑定', hidden: true, keepAlive: true, permission: ['user'] }
-              },
-              {
-                path: '/account/settings/notification',
-                name: 'NotificationSettings',
-                component: () => import('@/views/account/settings/Notification'),
-                meta: { title: '新消息通知', hidden: true, keepAlive: true, permission: ['user'] }
-              }
-            ]
+            path: '/menu13/email',
+            name: 'email',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Email Account Inventory', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+          },
+          {
+            path: '/menu13/network',
+            name: 'network',
+            component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+            meta: { title: 'Network Inventory', keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
           }
         ]
+      },
+      {
+        path: '/menu14',
+        name: 'menu14',
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'help', icon: menu14, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }       
+      },
+      {
+        path: '/menu15',
+        name: 'menu15',
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'tool',icon: menu15, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
+      },
+      {
+        path: '/menu16',
+        name: 'menu16',
+        component: () => import(/* webpackChunkName: "result" */ '@/views/demo/EndPoint'),
+        meta: { title: 'more', icon:menu16, keepAlive: false, hiddenHeaderContent: true, permission: ['result'] }
       }
     ]
   },

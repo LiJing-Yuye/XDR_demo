@@ -57,7 +57,7 @@
           <a-card :body-style="{ paddingBottom: 20 }" hoverable>
             <a-card-meta :title="item.title">
               <template slot="avatar">
-                <a-avatar size="small" :src="item.avatar"/>
+                <a-avatar size="small" :src="item.avatar" />
               </template>
             </a-card-meta>
             <template slot="actions">
@@ -88,7 +88,7 @@
               </a-dropdown>
             </template>
             <div class="">
-              <card-info active-user="100" new-user="999"></card-info>
+              <card-info active-user="100" new-user="999" />
             </div>
           </a-card>
         </a-list-item>

@@ -1,5 +1,10 @@
 <template>
-  <a-dropdown v-if="currentUser && currentUser.name" placement="bottomRight">
+<div class="ant-layout ">
+  <header class="ant-layout-header">
+    netscan
+  </header>
+</div>
+  <!-- <a-dropdown v-if="currentUser && currentUser.name" placement="bottomRight">
     <span class="ant-pro-account-avatar">
       <a-avatar size="small" :src="currentUser.avatar" class="antd-pro-global-header-index-avatar" />
       <span>{{ currentUser.name }}</span>
@@ -24,7 +29,7 @@
   </a-dropdown>
   <span v-else>
     <a-spin size="small" :style="{ marginLeft: 8, marginRight: 8 }" />
-  </span>
+  </span> -->
 </template>
 
 <script>
@@ -76,5 +81,31 @@ export default {
   /deep/ .ant-dropdown-menu-item {
     min-width: 160px;
   }
+}
+.ant-layout {
+  background-color: #151515;
+  width: 100%;
+  height: 100%;
+}
+
+.ant-layout-header {
+    padding: 0 2px 0 20px;
+    height: 48px;
+    background-color: #2c2c2c;
+    border-bottom: 1px solid #111;
+    line-height: 40px;
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1);
+    box-shadow: 0 0 2px rgba(0,0,0,.1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 </style>

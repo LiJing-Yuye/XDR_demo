@@ -4,11 +4,12 @@
     <v-chart
       height="254"
       :data="data"
-      :forceFit="true"
-      :padding="['auto', 'auto', '40', '50']">
+      :force-fit="true"
+      :padding="['auto', 'auto', '40', '50']"
+    >
       <v-tooltip />
       <v-axis />
-      <v-bar position="x*y"/>
+      <v-bar position="x*y" />
     </v-chart>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <a-config-provider :locale="locale">
-    <div id="app">
-      <router-view/>
+    <div id="app" style="background-color:#151515">
+      <router-view />
     </div>
   </a-config-provider>
 </template>

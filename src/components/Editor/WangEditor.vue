@@ -1,6 +1,6 @@
 <template>
   <div :class="prefixCls">
-    <div ref="editor" class="editor-wrapper"></div>
+    <div ref="editor" class="editor-wrapper" />
   </div>
 </template>
 

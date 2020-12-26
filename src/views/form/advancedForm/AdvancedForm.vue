@@ -1,17 +1,17 @@
 <template>
   <page-header-wrapper content="高级表单常见于一次性输入和提交大批量数据的场景">
     <a-card class="card" title="仓库管理" :bordered="false">
-      <repository-form ref="repository" :showSubmit="false" />
+      <repository-form ref="repository" :show-submit="false" />
     </a-card>
     <a-card class="card" title="任务管理" :bordered="false">
-      <task-form ref="task" :showSubmit="false" />
+      <task-form ref="task" :show-submit="false" />
     </a-card>
 
     <!-- table -->
     <a-card>
       <a-table
         :columns="columns"
-        :dataSource="data"
+        :data-source="data"
         :pagination="false"
         :loading="memberLoading"
       >
@@ -56,7 +56,7 @@
     <!-- fixed footer toolbar -->
     <footer-tool-bar :is-mobile="isMobile" :collapsed="sideCollapsed">
       <span class="popover-wrapper">
-        <a-popover title="表单校验信息" overlayClassName="antd-pro-pages-forms-style-errorPopover" trigger="click" :getPopupContainer="trigger => trigger.parentNode">
+        <a-popover title="表单校验信息" overlay-class-name="antd-pro-pages-forms-style-errorPopover" trigger="click" :get-popup-container="trigger => trigger.parentNode">
           <template slot="content">
             <li v-for="item in errors" :key="item.key" @click="scrollToField(item.key)" class="antd-pro-pages-forms-style-errorListItem">
               <a-icon type="cross-circle-o" class="antd-pro-pages-forms-style-errorIcon" />

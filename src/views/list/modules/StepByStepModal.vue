@@ -3,7 +3,7 @@
     title="分步对话框"
     :width="640"
     :visible="visible"
-    :confirmLoading="confirmLoading"
+    :confirm-loading="confirmLoading"
     @cancel="handleCancel"
   >
     <a-spin :spinning="confirmLoading">
@@ -17,24 +17,24 @@
         <div v-show="currentStep === 0">
           <a-form-item
             label="规则名称"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
           >
             <a-input v-decorator="['name', {rules: [{required: true}]}]" />
           </a-form-item>
           <a-form-item
             label="规则描述"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
           >
-            <a-textarea :rows="4" v-decorator="['desc', {rules: [{required: true}]}]"></a-textarea>
+            <a-textarea :rows="4" v-decorator="['desc', {rules: [{required: true}]}]" />
           </a-form-item>
         </div>
         <div v-show="currentStep === 1">
           <a-form-item
             label="监控对象"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
           >
             <a-select v-decorator="['target', {initialValue: 0, rules: [{required: true}]}]" style="width: 100%">
               <a-select-option :value="0">表一</a-select-option>
@@ -44,8 +44,8 @@
 
           <a-form-item
             label="规则模板"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
           >
             <a-select v-decorator="['template', { initialValue: 0, rules: [{required: true}]}]" style="width: 100%">
               <a-select-option :value="0">规则模板一</a-select-option>
@@ -55,8 +55,8 @@
 
           <a-form-item
             label="规则类型"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
           >
             <a-radio-group v-decorator="['type', {initialValue: 0, rules: [{required: true}]}]" style="width: 100%">
               <a-radio :value="0">强</a-radio>
@@ -68,15 +68,15 @@
         <div v-show="currentStep === 2">
           <a-form-item
             label="开始时间"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
           >
             <a-date-picker v-decorator="['time', {rules: [{ type: 'object', required: true, message: 'Please select time!' }]}]" style="width: 100%" />
           </a-form-item>
           <a-form-item
             label="调度周期"
-            :labelCol="labelCol"
-            :wrapperCol="wrapperCol"
+            :label-col="labelCol"
+            :wrapper-col="wrapperCol"
           >
             <a-select v-decorator="['frequency', { initialValue: 'month', rules: [{required: true}]}]" style="width: 100%">
               <a-select-option value="month">月</a-select-option>
@@ -88,7 +88,7 @@
       </a-form>
     </a-spin>
     <template slot="footer">
-      <a-button key="back" @click="backward" v-if="currentStep > 0" :style="{ float: 'left' }" >上一步</a-button>
+      <a-button key="back" @click="backward" v-if="currentStep > 0" :style="{ float: 'left' }">上一步</a-button>
       <a-button key="cancel" @click="handleCancel">取消</a-button>
       <a-button key="forward" :loading="confirmLoading" type="primary" @click="handleNext(currentStep)">{{ currentStep === 2 && '完成' || '下一步' }}</a-button>
     </template>

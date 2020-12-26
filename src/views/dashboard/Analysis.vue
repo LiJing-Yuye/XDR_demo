@@ -81,7 +81,7 @@
                 <bar :data="barData" title="销售额排行" />
               </a-col>
               <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList"/>
+                <rank-list title="门店销售排行榜" :list="rankList" />
               </a-col>
             </a-row>
           </a-tab-pane>
@@ -91,7 +91,7 @@
                 <bar :data="barData2" title="销售额趋势" />
               </a-col>
               <a-col :xl="8" :lg="12" :md="12" :sm="24" :xs="24">
-                <rank-list title="门店销售排行榜" :list="rankList"/>
+                <rank-list title="门店销售排行榜" :list="rankList" />
               </a-col>
             </a-row>
           </a-tab-pane>
@@ -128,7 +128,7 @@
                 </number-info>
                 <!-- miniChart -->
                 <div>
-                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData" :scale="searchUserScale" />
+                  <mini-smooth-area :style="{ height: '45px' }" :data-source="searchUserData" :scale="searchUserScale" />
                 </div>
               </a-col>
               <a-col :xs="24" :sm="12" :style="{ marginBottom: ' 24px'}">
@@ -142,7 +142,7 @@
                 </number-info>
                 <!-- miniChart -->
                 <div>
-                  <mini-smooth-area :style="{ height: '45px' }" :dataSource="searchUserData" :scale="searchUserScale" />
+                  <mini-smooth-area :style="{ height: '45px' }" :data-source="searchUserData" :scale="searchUserScale" />
                 </div>
               </a-col>
             </a-row>
@@ -151,7 +151,7 @@
                 row-key="index"
                 size="small"
                 :columns="searchTableColumns"
-                :dataSource="searchData"
+                :data-source="searchData"
                 :pagination="{ pageSize: 5 }"
               >
                 <span slot="range" slot-scope="text, record">
@@ -181,7 +181,7 @@
                 </a-dropdown>
               </span>
               <div class="analysis-salesTypeRadio">
-                <a-radio-group defaultValue="a">
+                <a-radio-group default-value="a">
                   <a-radio-button value="a">全部渠道</a-radio-button>
                   <a-radio-button value="b">线上</a-radio-button>
                   <a-radio-button value="c">门店</a-radio-button>
@@ -194,12 +194,12 @@
               <!-- style="width: calc(100% - 240px);" -->
               <div>
                 <v-chart :force-fit="true" :height="405" :data="pieData" :scale="pieScale">
-                  <v-tooltip :showTitle="false" dataKey="item*percent" />
+                  <v-tooltip :show-title="false" data-key="item*percent" />
                   <v-axis />
                   <!-- position="right" :offsetX="-140" -->
-                  <v-legend dataKey="item"/>
-                  <v-pie position="percent" color="item" :vStyle="pieStyle" />
-                  <v-coord type="theta" :radius="0.75" :innerRadius="0.6" />
+                  <v-legend data-key="item" />
+                  <v-pie position="percent" color="item" :v-style="pieStyle" />
+                  <v-coord type="theta" :radius="0.75" :inner-radius="0.6" />
                 </v-chart>
               </div>
 

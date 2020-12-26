@@ -4,7 +4,7 @@
       <span>{{ title }}</span>
     </div>
     <div class="antd-pro-components-standard-form-row-index-content">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

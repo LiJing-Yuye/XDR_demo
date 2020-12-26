@@ -101,10 +101,10 @@ export default {
     renderTabPaneMenu (e) {
       return (
         <a-menu {...{ on: { click: ({ key, item, domEvent }) => { this.closeMenuClick(key, e) } } }}>
-          <a-menu-item key="closeThat">关闭当前标签</a-menu-item>
-          <a-menu-item key="closeRight">关闭右侧</a-menu-item>
-          <a-menu-item key="closeLeft">关闭左侧</a-menu-item>
-          <a-menu-item key="closeAll">关闭全部</a-menu-item>
+          <a-menu-item key='closeThat'>关闭当前标签</a-menu-item>
+          <a-menu-item key='closeRight'>关闭右侧</a-menu-item>
+          <a-menu-item key='closeLeft'>关闭左侧</a-menu-item>
+          <a-menu-item key='closeAll'>关闭全部</a-menu-item>
         </a-menu>
       )
     },
@@ -144,8 +144,8 @@ export default {
     })
 
     return (
-      <div class="ant-pro-multi-tab">
-        <div class="ant-pro-multi-tab-wrapper">
+      <div class='ant-pro-multi-tab'>
+        <div class='ant-pro-multi-tab-wrapper'>
           <a-tabs
             hideAdd
             type={'editable-card'}

@@ -3,11 +3,11 @@
     <a-form :form="form" @submit="handleSubmit">
 
       <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
         label="规则编号"
-        hasFeedback
-        validateStatus="success"
+        has-feedback
+        validate-status="success"
       >
         <a-input
           placeholder="规则编号"
@@ -16,25 +16,25 @@
             {rules: [{ required: true, message: '请输入规则编号' }]}
           ]"
           :disabled="true"
-        ></a-input>
+        />
       </a-form-item>
 
       <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
         label="服务调用次数"
-        hasFeedback
-        validateStatus="success"
+        has-feedback
+        validate-status="success"
       >
         <a-input-number :min="1" style="width: 100%" v-decorator="['callNo', {rules: [{ required: true }]}]" />
       </a-form-item>
 
       <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
         label="状态"
-        hasFeedback
-        validateStatus="warning"
+        has-feedback
+        validate-status="warning"
       >
         <a-select v-decorator="['status', {rules: [{ required: true, message: '请选择状态' }], initialValue: '1'}]">
           <a-select-option :value="1">Option 1</a-select-option>
@@ -44,25 +44,25 @@
       </a-form-item>
 
       <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
         label="描述"
-        hasFeedback
+        has-feedback
         help="请填写一段描述"
       >
         <a-textarea :rows="5" placeholder="..." v-decorator="['description', {rules: [{ required: true }]}]" />
       </a-form-item>
 
       <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
         label="更新时间"
-        hasFeedback
-        validateStatus="error"
+        has-feedback
+        validate-status="error"
       >
         <a-date-picker
           style="width: 100%"
-          showTime
+          show-time
           format="YYYY-MM-DD HH:mm:ss"
           placeholder="Select Time"
           v-decorator="['updatedAt']"
@@ -79,7 +79,7 @@
           <a-col span="10">
             <a-button @click="handleGoBack">返回</a-button>
           </a-col>
-          <a-col span="8"></a-col>
+          <a-col span="8" />
         </a-row>
       </a-form-item>
     </a-form>

@@ -3,12 +3,13 @@
     <a-row :gutter="8">
       <a-col :span="5">
         <s-tree
-          :dataSource="orgTree"
-          :openKeys.sync="openKeys"
+          :data-source="orgTree"
+          :open-keys.sync="openKeys"
           :search="true"
           @click="handleClick"
           @add="handleAdd"
-          @titleClick="handleTitleClick"></s-tree>
+          @titleClick="handleTitleClick"
+        />
       </a-col>
       <a-col :span="19">
         <s-table
@@ -17,7 +18,7 @@
           :columns="columns"
           :data="loadData"
           :alert="false"
-          :rowSelection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
+          :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
         >
           <span slot="action" slot-scope="text, record">
             <template v-if="$auth('table.update')">

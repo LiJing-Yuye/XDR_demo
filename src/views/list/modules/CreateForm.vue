@@ -3,7 +3,7 @@
     title="新建规则"
     :width="640"
     :visible="visible"
-    :confirmLoading="loading"
+    :confirm-loading="loading"
     @ok="() => { $emit('ok') }"
     @cancel="() => { $emit('cancel') }"
   >

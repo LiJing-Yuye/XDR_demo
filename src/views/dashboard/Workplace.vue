@@ -3,7 +3,7 @@
     <template v-slot:content>
       <div class="page-header-content">
         <div class="avatar">
-          <a-avatar size="large" :src="currentUser.avatar"/>
+          <a-avatar size="large" :src="currentUser.avatar" />
         </div>
         <div class="content">
           <div class="content-title">
@@ -36,14 +36,15 @@
             style="margin-bottom: 24px;"
             :bordered="false"
             title="进行中的项目"
-            :body-style="{ padding: 0 }">
+            :body-style="{ padding: 0 }"
+          >
             <a slot="extra">全部项目</a>
             <div>
               <a-card-grid class="project-card-grid" :key="i" v-for="(item, i) in projects">
                 <a-card :bordered="false" :body-style="{ padding: 0 }">
                   <a-card-meta>
                     <div slot="title" class="card-title">
-                      <a-avatar size="small" :src="item.cover"/>
+                      <a-avatar size="small" :src="item.cover" />
                       <a>{{ item.title }}</a>
                     </div>
                     <div slot="description" class="card-description">
@@ -63,7 +64,7 @@
             <a-list>
               <a-list-item :key="index" v-for="(item, index) in activities">
                 <a-list-item-meta>
-                  <a-avatar slot="avatar" :src="item.user.avatar"/>
+                  <a-avatar slot="avatar" :src="item.user.avatar" />
                   <div slot="title">
                     <span>{{ item.user.nickname }}</span>&nbsp;
                     在&nbsp;<a href="#">{{ item.project.name }}</a>&nbsp;
@@ -82,7 +83,8 @@
           :lg="24"
           :md="24"
           :sm="24"
-          :xs="24">
+          :xs="24"
+        >
           <a-card title="快速开始 / 便捷导航" style="margin-bottom: 24px" :bordered="false" :body-style="{padding: 0}">
             <div class="item-group">
               <a>操作一</a>
@@ -99,10 +101,11 @@
             style="margin-bottom: 24px"
             :loading="radarLoading"
             :bordered="false"
-            :body-style="{ padding: 0 }">
+            :body-style="{ padding: 0 }"
+          >
             <div style="min-height: 400px;">
               <!-- :scale="scale" :axis1Opts="axis1Opts" :axis2Opts="axis2Opts"  -->
-              <radar :data="radarData"/>
+              <radar :data="radarData" />
             </div>
           </a-card>
           <a-card :loading="loading" title="团队" :bordered="false">
@@ -110,7 +113,7 @@
               <a-row>
                 <a-col :span="12" v-for="(item, index) in teams" :key="index">
                   <a>
-                    <a-avatar size="small" :src="item.avatar"/>
+                    <a-avatar size="small" :src="item.avatar" />
                     <span class="member">{{ item.name }}</span>
                   </a>
                 </a-col>

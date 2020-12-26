@@ -1,9 +1,10 @@
 <template>
   <a-result
-    :isSuccess="true"
+    :is-success="true"
     :content="false"
     :title="email"
-    :sub-title="description">
+    :sub-title="description"
+  >
 
     <template #extra>
       <a-button size="large" type="primary">查看邮箱</a-button>
@@ -24,9 +25,10 @@ export default {
   },
   computed: {
     email () {
-      const v = this.form && this.form.email || 'xxx'
-      return `你的账户：${v} 注册成功`
-    }
+      // const v = this.form && this.form.email || 'xxx'
+      // return `你的账户：${v} 注册成功`
+      return 'success'
+}
   },
   created () {
     this.form = this.$route.params

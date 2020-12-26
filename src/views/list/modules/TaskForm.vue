@@ -2,26 +2,26 @@
   <a-form @submit="handleSubmit" :form="form">
     <a-form-item
       label="任务名称"
-      :labelCol="labelCol"
-      :wrapperCol="wrapperCol"
+      :label-col="labelCol"
+      :wrapper-col="wrapperCol"
     >
       <a-input v-decorator="['title', {rules:[{required: true, message: '请输入任务名称'}]}]" />
     </a-form-item>
     <a-form-item
       label="开始时间"
-      :labelCol="labelCol"
-      :wrapperCol="wrapperCol"
+      :label-col="labelCol"
+      :wrapper-col="wrapperCol"
     >
       <a-date-picker
         style="width: 100%"
-        valueFormat="YYYY-MM-DD HH:mm"
+        value-format="YYYY-MM-DD HH:mm"
         v-decorator="['startAt', {rules:[{required: true, message: '请选择开始时间'}]}]"
       />
     </a-form-item>
     <a-form-item
       label="任务负责人"
-      :labelCol="labelCol"
-      :wrapperCol="wrapperCol"
+      :label-col="labelCol"
+      :wrapper-col="wrapperCol"
     >
       <a-select v-decorator="['owner', {rules:[{required: true, message: '请选择开始时间'}]}]">
         <a-select-option :value="0">付晓晓</a-select-option>
@@ -30,10 +30,10 @@
     </a-form-item>
     <a-form-item
       label="产品描述"
-      :labelCol="labelCol"
-      :wrapperCol="wrapperCol"
+      :label-col="labelCol"
+      :wrapper-col="wrapperCol"
     >
-      <a-textarea v-decorator="['description']"></a-textarea>
+      <a-textarea v-decorator="['description']" />
     </a-form-item>
   </a-form>
 </template>

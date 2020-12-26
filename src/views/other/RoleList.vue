@@ -5,7 +5,7 @@
         <a-row :gutter="48">
           <a-col :md="8" :sm="24">
             <a-form-item label="角色ID">
-              <a-input placeholder="请输入"/>
+              <a-input placeholder="请输入" />
             </a-form-item>
           </a-col>
           <a-col :md="8" :sm="24">
@@ -36,10 +36,12 @@
       <div
         slot="expandedRowRender"
         slot-scope="record"
-        style="margin: 0">
+        style="margin: 0"
+      >
         <a-row
           :gutter="24"
-          :style="{ marginBottom: '12px' }">
+          :style="{ marginBottom: '12px' }"
+        >
           <a-col :span="12" v-for="(role, index) in record.permissions" :key="index" :style="{ marginBottom: '12px' }">
             <a-col :span="4">
               <span>{{ role.permissionName }}：</span>
@@ -73,7 +75,7 @@
       </span>
     </s-table>
 
-    <role-modal ref="modal" @ok="handleOk"></role-modal>
+    <role-modal ref="modal" @ok="handleOk" />
 
   </a-card>
 </template>

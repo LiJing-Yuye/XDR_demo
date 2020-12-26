@@ -1,7 +1,7 @@
 <template>
   <a-list
-    itemLayout="horizontal"
-    :dataSource="data"
+    item-layout="horizontal"
+    :data-source="data"
   >
     <a-list-item slot="renderItem" slot-scope="item, index" :key="index">
       <a-list-item-meta>
